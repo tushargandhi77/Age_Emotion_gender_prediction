@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing Result</title>
+    <style>
+        /* Keyframe animation for text shadow */
+        @keyframes shadow-animation {
+            0% {
+                text-shadow: none;
+            }
+            50% {
+                text-shadow: 2px 2px 2px blue;
+            }
+            100% {
+                text-shadow: none;
+            }
+        }
+
+        /* Main heading style */
+        .main-title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: x-large;
+            text-decoration: underline;
+        }
+
+        /* Title animation */
+        .title-animate {
+            animation: shadow-animation 3s ease-in-out infinite;
+        }
+
+        /* Image container */
+        .image-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Inner image container with border and shadow */
+        .image-box {
+            width: 50%;
+            max-width: 100%;
+            overflow: hidden;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2), -2px -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Processed image styles */
+        .processed-image {
+            display: block;
+            width: 100%;
+            height: 70vh;
+        }
+
+        /* Prediction text styling */
+        .prediction {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .prediction p {
+            font-size: xx-large;
+        }
+
+        /* Media query for tablets and smaller devices */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: large;
+            }
+
+            .image-container {
+                width: 85%; /* Adjust image container width for tablets */
+            }
+
+            .image-box {
+                width: 70%; /* Adjust the image box size for tablets */
+            }
+
+            .processed-image {
+                height: auto;
+                max-height: 50vh; /* Adjust image height for smaller screens */
+            }
+
+            .prediction p {
+                font-size: large;
+                text-align: center;
+            }
+        }
+
+        /* Media query for mobile phones */
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: medium;
+            }
+
+            .image-container {
+                width: 95%; /* Further reduce width on mobile */
+            }
+
+            .image-box {
+                width: 85%; /* Make the image box smaller for mobile */
+            }
+
+            .processed-image {
+                height: auto;
+                max-height: 30vh; /* Reduce image height for mobile devices */
+            }
+
+            .prediction p {
+                font-size: medium;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-title">
+        <h2 class="title-animate">Image Processing Result</h2>
+    </div>
+
+    <div class="image-container">
+        <div class="image-box">
+            <img src="data:image/jpeg;base64,{{ img_base64 }}" alt="Processed Image" class="processed-image">
+        </div>
+    </div>
+
+    {% for prediction in predictions %}
+    <div class="prediction">
+        <p>{{ loop.index }}: Age: {{ prediction.age }}, Gender: {{ "Female" if prediction.gender > 0.5 else "Male" }},
+            Emotion: {{ prediction.emotion }}</p>
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>
