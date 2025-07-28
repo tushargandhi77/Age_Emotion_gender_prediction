@@ -1,5 +1,11 @@
 # Age_Gender_Emotion_Prediction_using_CNN
 
+![Data Science](https://img.shields.io/badge/Data%20Science-Project-blue)
+![Python](https://img.shields.io/badge/Python-3.10+-green)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Models-orange)
+![Machine Learning](https://img.shields.io/badge/Deep%20Learning-Models-red)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+
 
 ## Introduction
 In today's digital era, advancements in artificial intelligence and deep learning have revolutionized the way we interact with technology. One such application is the development of a web-based platform leveraging Flask server and deep learning models to predict age, gender, and emotion from images. This innovative solution offers a seamless experience for users, allowing them to upload images containing faces and obtain detailed demographic and emotional insights.
